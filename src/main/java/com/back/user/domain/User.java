@@ -11,39 +11,39 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class User {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String accountId;
 
-    private String password;
-
     private String email;
+
+    private String password;
 
     private String name;
 
-    @Embedded
-    private Address address;
+    private String profileUrl;
 
-    private String zip;
+    private String description;
 
     @Builder
     public User(
             Long id,
             String accountId,
-            String password,
             String email,
+            String password,
             String name,
-            Address address,
-            String zip
+            String profileUrl,
+            String description
     ) {
         this.id = id;
         this.accountId = accountId;
-        this.password = password;
         this.email = email;
+        this.password = password;
         this.name = name;
-        this.address = address;
-        this.zip = zip;
+        this.profileUrl = profileUrl;
+        this.description = description;
     }
 }
